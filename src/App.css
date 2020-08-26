@@ -8,6 +8,10 @@ body {
   background: #FAF8EE;
 }
 
+#root {
+  height: 100%;
+}
+
 .App {
   display: inline;
   text-align: center;
@@ -175,16 +179,81 @@ body {
   cursor: pointer;
 }
 
+.GameScreen {
+  height: 100%;
+}
+
+.GameScreen:focus {
+  outline: none;
+}
+
 .GameMatrix {
-
+  background: #BBADA1;
+  padding: 5px;
+  width: 400px;
+  margin: auto;
+  font-size: 30pt;
+  font-weight: bold;
+  border-radius: 5px;
 }
 
-.GameMatrix .GameRow {
-
-}
-
-.GameMatrix .GameRow .GameCell {
+.GameMatrix .GameCell {
  display: inline-block;
- width: 50px;
- line-height: 50px;
+ width: 90px;
+ line-height: 90px;
+ margin: 5px;
+ background: #61D992; /* = turquoise (for all numbers >= 4096) */
+ color: white;
+ border-radius: 5px;
+}
+
+.GameMatrix .GameCell.v0 {
+  background: #CDC1B4;
+  color: transparent;
+}
+
+.GameMatrix .GameCell.v2 {
+  background: #EFE4DA;
+  color: #776E65;
+}
+
+.GameMatrix .GameCell.v4 {
+  background: #EDE0C8;
+  color: #776E65;
+}
+
+.GameMatrix .GameCell.v8 {
+  background: #F2B178;
+}
+
+.GameMatrix .GameCell.v16 {
+  background: #F59562;
+}
+
+.GameMatrix .GameCell.v32 {
+  background: #F67C5F;
+}
+
+.GameMatrix .GameCell.v64 {
+  background: #F65E3A;
+}
+
+.GameMatrix .GameCell.v128 {
+  background: #EDCF72;
+}
+
+.GameMatrix .GameCell.v256 {
+  background: #EDCC61;
+}
+
+.GameMatrix .GameCell.v512 {
+  background: #EDC850;
+}
+
+.GameMatrix .GameCell.v1024 {
+  background: #EDC53F;
+}
+
+.GameMatrix .GameCell.v2048 {
+  background: #EDBF2D;
 }
