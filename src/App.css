@@ -187,11 +187,74 @@ body {
   outline: none;
 }
 
+.Game {
+  width: 410px;
+  margin: auto;
+}
+
+.Game > h1 {
+  position: absolute;
+  top: 20px;
+  margin: 0;
+  font-size: 70pt;
+  font-weight: 200;
+  color: #786E64;
+}
+
+.Game .score,
+.Game .best {
+  width: 60px;
+  font-weight: bold;
+  padding: 15px;
+  background: #BBADA1;
+  color: white;
+  border-radius: 5px;
+}
+
+.Game .score .label,
+.Game .best .label {
+  color: #EFE4DA;
+}
+
+.Game .score {
+  position: absolute;
+  top: 40px;
+  margin-left: 220px;
+}
+
+.Game .best {
+  position: absolute;
+  top: 40px;
+  margin-left: 320px;
+}
+
+.Game .text {
+  position: absolute;
+  top: 130px;
+  line-height: 30px;
+  color: #786E64;
+}
+
+.Game > button {
+  position: absolute;
+  top: 127px;
+  margin-left: 120px;
+  background: #8F7A65;
+  color: white;
+  border: 1px solid #786E64;
+  font-weight: bold;
+  border-radius: 3px;
+  line-height: 30px;
+  cursor: pointer;
+}
+
 .GameMatrix {
+  position: absolute;
   background: #BBADA1;
   padding: 5px;
   width: 400px;
   margin: auto;
+  margin-top: 200px;
   font-size: 30pt;
   font-weight: bold;
   border-radius: 5px;

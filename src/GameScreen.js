@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { gql } from "@apollo/client";
 import { Query, Mutation } from "@apollo/client/react/components";
 import "./App.css";
-import GameMatrix from "./GameMatrix.js";
+import Game from "./Game.js";
 
 const NEW_GAME = gql`
   query NewGame {
@@ -30,6 +30,8 @@ class GameScreen extends Component {
 
     this.gameScreen = React.createRef();
 
+    this.onNewGame = this.onNewGame.bind(this);
+
     this.state = {
       gameData: null
     }
@@ -37,6 +39,10 @@ class GameScreen extends Component {
 
   componentDidMount() {
     this.gameScreen.current.focus();
+  }
+
+  onNewGame() {
+    console.log('GameScreen: onNewGame');
   }
 
   onKeyDown = (processGame, data) => (evt) => {
@@ -73,6 +79,10 @@ class GameScreen extends Component {
       const { data } = resolve;
       const { processGame } = data;
       const { state, score } = processGame;
+
+      const bestScore = window.sessionStorage.getItem("bestScore");
+      if (score > bestScore) window.sessionStorage.setItem("bestScore", score);
+
       this.setState({
         gameData: {
           state,
@@ -91,7 +101,7 @@ class GameScreen extends Component {
               <div className="GameScreen" ref={this.gameScreen} tabIndex="-1" onKeyDown={this.onKeyDown(processGame, this.state.gameData || (!loading && data.newGame))}>
                 {loading
                   ? <p>Loading game data...</p>
-                  : <GameMatrix gameData={this.state.gameData || data.newGame} />
+                  : <Game gameData={this.state.gameData || data.newGame} onNewGame={this.onNewGame} />
                 }
               </div>
             )}
